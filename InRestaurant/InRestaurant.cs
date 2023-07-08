@@ -1,3 +1,4 @@
+using customerrorder.Common;
 using Godot;
 using System;
 
@@ -9,6 +10,7 @@ public partial class InRestaurant : Node2D
         findFoodChoiceButton(FoodChoice.Cheap).Pressed += foodChoiceCheapPressed;
         findFoodChoiceButton(FoodChoice.Mid).Pressed += foodChoiceMidPressed;
         findFoodChoiceButton(FoodChoice.Expensive).Pressed += foodChoiceExpensivePressed;
+        Context.LoadHUD(GetNode<Control>("HUD"));
     }
 
     private Button findFoodChoiceButton(FoodChoice foodChoice)
