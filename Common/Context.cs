@@ -6,9 +6,13 @@ internal class Context
 {
     private static Context _instance;
 
-    public int Happiness { get; private set; }
-    public int Money { get; private set; }
-    public Restaurant LastClickedRestaurant { get; private set; }
+    private int happiness;
+    private int money;
+    private Restaurant lastClickedRestaurant;
+
+    public static int Happiness => _instance.happiness;
+    public static int Money => _instance.money;
+    public static Restaurant LastClickedRestaurant => _instance.lastClickedRestaurant;
 
     public static Context Instance
     {
@@ -25,24 +29,24 @@ internal class Context
 
     public Context()
     {
-        Happiness = 65;
-        Money = 30;
+        happiness = 65;
+        money = 30;
     }
 
     public static void LoadHUD(Control hud)
     {
         var happinessBarNode = hud.FindChild("HappinessBar");
         var happinessTextureProgressBar = (TextureProgressBar)happinessBarNode.FindChild("HappinessBar");
-        happinessTextureProgressBar.Value = Instance.Happiness;
+        happinessTextureProgressBar.Value = Instance.happiness;
 
         var moneyDisplayNode = hud.FindChild("MoneyDisplay");
         var amountLabel = (Label)moneyDisplayNode.FindChild("Amount", recursive: true);
-        amountLabel.Text = Instance.Money.ToString();
+        amountLabel.Text = Instance.money.ToString();
     }
 
     public static void ClickedRestaurant(Restaurant restaurant)
     {
-        Instance.LastClickedRestaurant = restaurant;
+        _instance.lastClickedRestaurant = restaurant;
     }
 
     public static void Reset()

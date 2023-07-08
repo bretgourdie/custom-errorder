@@ -11,8 +11,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HappinessBar" parent="." instance=ExtResource("1_t678c")]
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="HappinessBar" parent="CanvasGroup" instance=ExtResource("1_t678c")]
 position = Vector2(7, 7)
 
-[node name="MoneyDisplay" parent="." instance=ExtResource("2_wnmxr")]
+[node name="MoneyDisplay" parent="CanvasGroup" instance=ExtResource("2_wnmxr")]
 position = Vector2(23, 60)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(5.03226, 2.29412)
+color = Color(0.219608, 0.219608, 0.219608, 0.552941)

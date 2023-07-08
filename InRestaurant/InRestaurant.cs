@@ -15,6 +15,8 @@ public partial class InRestaurant : Node2D
         findFoodChoiceButton(FoodChoice.Mid).Pressed += foodChoiceMidPressed;
         findFoodChoiceButton(FoodChoice.Expensive).Pressed += foodChoiceExpensivePressed;
         Context.LoadHUD(GetNode<Control>("HUD"));
+        clickedRestaurant = Context.LastClickedRestaurant;
+        GD.Print($"Clicked Restaurant: {clickedRestaurant}");
     }
 
     private Button findFoodChoiceButton(FoodChoice foodChoice)
