@@ -2,6 +2,7 @@ using customerrorder.Common;
 using Godot;
 using System;
 
+namespace customerrorder.RestaurantSelection;
 public partial class RestaurantSelection : Node2D
 {
     private const string pressed = "pressed";
@@ -48,13 +49,5 @@ public partial class RestaurantSelection : Node2D
     {
         GD.Print(nameof(onHighDiningPressed));
         GetTree().ChangeSceneToFile("InRestaurant/InRestaurant.tscn");
-    }
-
-    private enum Restaurant
-    {
-        FastFood,
-        Casual,
-        SitDown,
-        HighDining
     }
 }

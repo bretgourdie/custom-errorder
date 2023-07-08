@@ -1,4 +1,5 @@
 ﻿using Godot;
+using customerrorder.RestaurantSelection;
 
 namespace customerrorder.Common;
 internal class Context
@@ -7,6 +8,7 @@ internal class Context
 
     public int Happiness { get; private set; }
     public int Money { get; private set; }
+    public Restaurant LastClickedRestaurant { get; private set; }
 
     public static Context Instance
     {
@@ -36,6 +38,11 @@ internal class Context
         var moneyDisplayNode = hud.FindChild("MoneyDisplay");
         var amountLabel = (Label)moneyDisplayNode.FindChild("Amount", recursive: true);
         amountLabel.Text = Instance.Money.ToString();
+    }
+
+    public static void ClickedRestaurant(Restaurant restaurant)
+    {
+        Instance.LastClickedRestaurant = restaurant;
     }
 
     public static void Reset()

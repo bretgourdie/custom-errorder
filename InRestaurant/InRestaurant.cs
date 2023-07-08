@@ -1,9 +1,13 @@
 using customerrorder.Common;
 using Godot;
 using System;
+using customerrorder.RestaurantSelection;
 
+namespace customerrorder.InRestaurant;
 public partial class InRestaurant : Node2D
 {
+    private Restaurant clickedRestaurant;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -36,12 +40,5 @@ public partial class InRestaurant : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-    }
-
-    private enum FoodChoice
-    {
-        Cheap,
-        Mid,
-        Expensive
     }
 }
