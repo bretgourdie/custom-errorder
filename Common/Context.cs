@@ -23,7 +23,7 @@ internal class Context
 
     public Context()
     {
-        Happiness = 25;
+        Happiness = 65;
         Money = 30;
     }
 
