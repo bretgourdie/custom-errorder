@@ -27,21 +27,25 @@ public partial class RestaurantSelection : Node2D
     public void onFastFoodPressed()
     {
         GD.Print(nameof(onFastFoodPressed));
+        GetTree().ChangeSceneToFile("InRestaurant/InRestaurant.tscn");
     }
 
     public void onCasualPressed()
     {
         GD.Print(nameof(onCasualPressed));
+        GetTree().ChangeSceneToFile("InRestaurant/InRestaurant.tscn");
     }
 
     public void onSitDownPressed()
     {
         GD.Print(nameof(onSitDownPressed));
+        GetTree().ChangeSceneToFile("InRestaurant/InRestaurant.tscn");
     }
 
     public void onHighDiningPressed()
     {
         GD.Print(nameof(onHighDiningPressed));
+        GetTree().ChangeSceneToFile("InRestaurant/InRestaurant.tscn");
     }
 
     private enum Restaurant
