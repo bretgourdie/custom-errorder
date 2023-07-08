@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dabv31ijrnokj"]
+
+[ext_resource type="Script" path="res://InRestaurant/InRestaurant.cs" id="1_tdj12"]
+[ext_resource type="PackedScene" uid="uid://bfcbxatygwlup" path="res://Resources/UI/HUD.tscn" id="2_ru40r"]
+
+[node name="InRestaurant" type="Node2D"]
+script = ExtResource("1_tdj12")
+
+[node name="HUD" parent="." instance=ExtResource("2_ru40r")]
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+
+[node name="FoodChoiceCheap" type="Button" parent="MenuBackground"]
+offset_left = 206.0
+offset_top = 144.0
+offset_right = 336.0
+offset_bottom = 240.0
+
+[node name="Price" type="Label" parent="MenuBackground/FoodChoiceCheap"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 38.0
+offset_right = 234.0
+offset_bottom = 61.0
+text = "$"
+
+[node name="FoodChoiceMid" type="Button" parent="MenuBackground"]
+offset_left = 204.0
+offset_top = 302.0
+offset_right = 334.0
+offset_bottom = 398.0
+
+[node name="Price" type="Label" parent="MenuBackground/FoodChoiceMid"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 36.0
+offset_right = 232.0
+offset_bottom = 62.0
+text = "$"
+
+[node name="FoodChoiceExpensive" type="Button" parent="MenuBackground"]
+offset_left = 204.0
+offset_top = 479.0
+offset_right = 334.0
+offset_bottom = 575.0
+
+[node name="Price" type="Label" parent="MenuBackground/FoodChoiceExpensive"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 43.0
+offset_right = 230.0
+offset_bottom = 69.0
+text = "$"
