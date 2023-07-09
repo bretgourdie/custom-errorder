@@ -2,11 +2,16 @@ using customerrorder.Common;
 using Godot;
 using System;
 using customerrorder.RestaurantSelection;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace customerrorder.InRestaurant;
 public partial class InRestaurant : Node2D
 {
     private Restaurant clickedRestaurant;
+
+    private Stack<FoodItem> cart = new Stack<FoodItem>();
+    private Label totalDisplay;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -22,8 +27,26 @@ public partial class InRestaurant : Node2D
 
         GetNode<Button>("BackButton").Pressed += backButtonPressed;
 
+        GetNode<Button>("RemoveLastItemButton").Pressed += removeLastItemButtonPressed;
+        totalDisplay = GetNode<Label>("TotalWordLabel/TotalDisplay");
+
         Context.LoadHUD(GetNode<Control>("HUD"));
-        GD.Print($"Clicked Restaurant: {clickedRestaurant}");
+
+    }
+
+    private void removeLastItemButtonPressed()
+    {
+        if (cart.Any())
+        {
+            cart.Pop();
+        }
+
+        recalculateTotal();
+    }
+
+    private void recalculateTotal()
+    {
+        totalDisplay.Text = $"${cart.Sum(x => x.Price)}";
     }
 
     private void backButtonPressed()
@@ -59,17 +82,20 @@ public partial class InRestaurant : Node2D
 
     private void foodChoiceMidPressed()
     {
-        GD.Print(nameof(foodChoiceMidPressed));
+        cart.Push(clickedRestaurant.Offering.MidItem);
+        recalculateTotal();
     }
 
     private void foodChoiceExpensivePressed()
     {
-        GD.Print(nameof(foodChoiceExpensivePressed));
+        cart.Push(clickedRestaurant.Offering.ExpensiveItem);
+        recalculateTotal();
     }
 
     private void foodChoiceCheapPressed()
     {
-        GD.Print(nameof(foodChoiceCheapPressed));
+        cart.Push(clickedRestaurant.Offering.CheapItem);
+        recalculateTotal();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
