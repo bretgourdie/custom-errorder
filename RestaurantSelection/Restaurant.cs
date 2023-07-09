@@ -1,8 +1,21 @@
-﻿namespace customerrorder.RestaurantSelection;
-public enum Restaurant
+﻿using customerrorder.Common;
+
+namespace customerrorder.RestaurantSelection;
+internal struct Restaurant
 {
-    FastFood,
-    Casual,
-    SitDown,
-    HighDining
+    public readonly string Name;
+    public readonly Offering Offering;
+
+    public Restaurant(
+        string name,
+        Offering offering)
+    {
+        Name = name;
+        Offering = offering;
+    }
+
+    public override string ToString()
+    {
+        return Name;
+    }
 }

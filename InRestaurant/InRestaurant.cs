@@ -21,7 +21,7 @@ public partial class InRestaurant : Node2D
 
     private Button findFoodChoiceButton(FoodChoice foodChoice)
     {
-        return GetNode<Button>($"MenuBackground/FoodChoice{foodChoice}");
+        return GetNode<Button>($"FoodChoice{foodChoice}");
     }
 
     private void foodChoiceMidPressed()
