@@ -11,12 +11,38 @@ public partial class InRestaurant : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        clickedRestaurant = Context.LastClickedRestaurant ?? getDemoRestaurant();
+        loadFoodChoice(FoodChoice.Cheap, clickedRestaurant.Offering.CheapItem);
+        loadFoodChoice(FoodChoice.Mid, clickedRestaurant.Offering.MidItem);
+        loadFoodChoice(FoodChoice.Expensive, clickedRestaurant.Offering.ExpensiveItem);
+
         findFoodChoiceButton(FoodChoice.Cheap).Pressed += foodChoiceCheapPressed;
         findFoodChoiceButton(FoodChoice.Mid).Pressed += foodChoiceMidPressed;
         findFoodChoiceButton(FoodChoice.Expensive).Pressed += foodChoiceExpensivePressed;
+
         Context.LoadHUD(GetNode<Control>("HUD"));
-        clickedRestaurant = Context.LastClickedRestaurant;
         GD.Print($"Clicked Restaurant: {clickedRestaurant}");
+    }
+
+    private void loadFoodChoice(FoodChoice foodChoice, FoodItem foodItem)
+    {
+        var foodChoiceButton = findFoodChoiceButton(foodChoice);
+
+        foodChoiceButton.Icon = ResourceLoader.Load<Texture2D>($"Resources/Food/{foodItem.Picture}.png");
+        var priceLabel = foodChoiceButton.FindChild("Price") as Label;
+        priceLabel.Text = "$ " + foodItem.Price.ToString();
+    }
+
+    private Restaurant getDemoRestaurant()
+    {
+        return new Restaurant(
+            "Demo",
+            new Offering(
+                new FoodItem(1.0M, "The Cheap One"),
+                new FoodItem(2.0M, "The Mid One"),
+                new FoodItem(3.0M, "The Expensive One")
+            )
+        );
     }
 
     private Button findFoodChoiceButton(FoodChoice foodChoice)

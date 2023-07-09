@@ -19,27 +19,27 @@ public partial class RestaurantSelection : Node2D
         fastFood = new Restaurant(
             "FastFood",
             new Offering(
-                new FoodItem(1.5m, "Milkshake"),
-                new FoodItem(2.0m, "Fries"),
-                new FoodItem(4.0m, "Burger")
+                new FoodItem(1.50m, "Soda"),
+                new FoodItem(2.00m, "Fries"),
+                new FoodItem(4.00m, "Burger")
             )
         );
 
         casual = new Restaurant(
             "Casual",
             new Offering(
-                new FoodItem(2.3m, "Chips and Queso"),
-                new FoodItem(4.0m, "The Guac"),
-                new FoodItem(7.5m, "Burrito")
+                new FoodItem(2.30m, "Taco"),
+                new FoodItem(4.00m, "Chips and Queso"),
+                new FoodItem(7.55m, "Burrito")
             )
         );
 
         sitDown = new Restaurant(
             "SitDown",
             new Offering(
-                new FoodItem(5.25m, "Loaded Fries"),
-                new FoodItem(7.85m, "Craft Beer"),
-                new FoodItem(12.05m, "The Craft Hot Dog")
+                new FoodItem(5.25m, "Salad"),
+                new FoodItem(7.85m, "Long Island Iced Tea"),
+                new FoodItem(12.05m, "Basket of Chicken")
             )
         );
 
@@ -47,7 +47,7 @@ public partial class RestaurantSelection : Node2D
             "HighDining",
             new Offering(
                 new FoodItem(6.50m, "Hummus and Pita"),
-                new FoodItem(15.00m, "Old Fashioned (our way)"),
+                new FoodItem(15.00m, "Sushi"),
                 new FoodItem(23.00m, "The Half Chicken")
             )
         );

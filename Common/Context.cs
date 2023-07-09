@@ -1,5 +1,6 @@
 ﻿using Godot;
 using customerrorder.RestaurantSelection;
+using System;
 
 namespace customerrorder.Common;
 internal class Context
@@ -12,7 +13,7 @@ internal class Context
 
     public static int Happiness => _instance.happiness;
     public static int Money => _instance.money;
-    public static Restaurant LastClickedRestaurant => _instance.lastClickedRestaurant;
+    public static Nullable<Restaurant> LastClickedRestaurant => _instance.lastClickedRestaurant;
 
     public static Context Instance
     {
