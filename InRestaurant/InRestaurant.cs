@@ -80,22 +80,27 @@ public partial class InRestaurant : Node2D
         return GetNode<Button>($"FoodChoice{foodChoice}");
     }
 
-    private void foodChoiceMidPressed()
+    private void foodChoiceMidPressed() =>
+        foodChoicePressed(clickedRestaurant.Offering.MidItem);
+
+    private void foodChoiceExpensivePressed() =>
+        foodChoicePressed(clickedRestaurant.Offering.ExpensiveItem);
+
+    private void foodChoiceCheapPressed() =>
+        foodChoicePressed(clickedRestaurant.Offering.CheapItem);
+
+    private void foodChoicePressed(FoodItem foodItem)
     {
-        cart.Push(clickedRestaurant.Offering.MidItem);
-        recalculateTotal();
+        if (canAfford(foodItem))
+        {
+            cart.Push(foodItem);
+            recalculateTotal();
+        }
     }
 
-    private void foodChoiceExpensivePressed()
+    private bool canAfford(FoodItem foodItem)
     {
-        cart.Push(clickedRestaurant.Offering.ExpensiveItem);
-        recalculateTotal();
-    }
-
-    private void foodChoiceCheapPressed()
-    {
-        cart.Push(clickedRestaurant.Offering.CheapItem);
-        recalculateTotal();
+        return cart.Sum(x => x.Price) + foodItem.Price <= Context.Money;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
