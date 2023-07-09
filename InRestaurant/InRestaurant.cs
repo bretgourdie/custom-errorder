@@ -20,8 +20,15 @@ public partial class InRestaurant : Node2D
         findFoodChoiceButton(FoodChoice.Mid).Pressed += foodChoiceMidPressed;
         findFoodChoiceButton(FoodChoice.Expensive).Pressed += foodChoiceExpensivePressed;
 
+        GetNode<Button>("BackButton").Pressed += backButtonPressed;
+
         Context.LoadHUD(GetNode<Control>("HUD"));
         GD.Print($"Clicked Restaurant: {clickedRestaurant}");
+    }
+
+    private void backButtonPressed()
+    {
+        GetTree().ChangeSceneToFile("RestaurantSelection/RestaurantSelection.tscn");
     }
 
     private void loadFoodChoice(FoodChoice foodChoice, FoodItem foodItem)
