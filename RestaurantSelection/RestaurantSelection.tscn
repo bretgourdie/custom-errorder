@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi21eqneohq22"]
+[gd_scene load_steps=7 format=3 uid="uid://bi21eqneohq22"]
 
 [ext_resource type="PackedScene" uid="uid://bfcbxatygwlup" path="res://Resources/UI/HUD.tscn" id="1_oc535"]
 [ext_resource type="Script" path="res://RestaurantSelection/RestaurantSelection.cs" id="1_s3vt6"]
 [ext_resource type="Texture2D" uid="uid://btq3tkuaxk7mc" path="res://RestaurantSelection/FastFood.png" id="2_cvl1u"]
 [ext_resource type="Texture2D" uid="uid://dr5q6xg5pw5nh" path="res://RestaurantSelection/city.jpg" id="3_3k6vu"]
 [ext_resource type="Texture2D" uid="uid://cr5w8egjaa2g0" path="res://RestaurantSelection/Casual.png" id="3_x86sv"]
+[ext_resource type="Texture2D" uid="uid://00fhsh0vur8g" path="res://RestaurantSelection/SitDown.png" id="4_xk7vy"]
 
 [node name="RestaurantSelection" type="Node2D"]
 script = ExtResource("1_s3vt6")
@@ -30,6 +31,8 @@ offset_left = 279.0
 offset_top = 387.0
 offset_right = 402.0
 offset_bottom = 500.0
+icon = ExtResource("4_xk7vy")
+expand_icon = true
 
 [node name="HighDining" type="Button" parent="."]
 offset_left = 709.0
