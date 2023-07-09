@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi21eqneohq22"]
+[gd_scene load_steps=6 format=3 uid="uid://bi21eqneohq22"]
 
 [ext_resource type="PackedScene" uid="uid://bfcbxatygwlup" path="res://Resources/UI/HUD.tscn" id="1_oc535"]
 [ext_resource type="Script" path="res://RestaurantSelection/RestaurantSelection.cs" id="1_s3vt6"]
+[ext_resource type="Texture2D" uid="uid://btq3tkuaxk7mc" path="res://RestaurantSelection/FastFood.png" id="2_cvl1u"]
 [ext_resource type="Texture2D" uid="uid://dr5q6xg5pw5nh" path="res://RestaurantSelection/city.jpg" id="3_3k6vu"]
+[ext_resource type="Texture2D" uid="uid://cr5w8egjaa2g0" path="res://RestaurantSelection/Casual.png" id="3_x86sv"]
 
 [node name="RestaurantSelection" type="Node2D"]
 script = ExtResource("1_s3vt6")
@@ -12,16 +14,16 @@ offset_left = 86.0
 offset_top = 99.0
 offset_right = 209.0
 offset_bottom = 212.0
-
-[node name="Sprite2D" type="Sprite2D" parent="FastFood"]
+icon = ExtResource("2_cvl1u")
+expand_icon = true
 
 [node name="Casual" type="Button" parent="."]
 offset_left = 600.0
 offset_top = 172.0
 offset_right = 723.0
 offset_bottom = 285.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Casual"]
+icon = ExtResource("3_x86sv")
+expand_icon = true
 
 [node name="SitDown" type="Button" parent="."]
 offset_left = 279.0
@@ -29,15 +31,11 @@ offset_top = 387.0
 offset_right = 402.0
 offset_bottom = 500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="SitDown"]
-
 [node name="HighDining" type="Button" parent="."]
 offset_left = 709.0
 offset_top = 453.0
 offset_right = 832.0
 offset_bottom = 566.0
-
-[node name="Sprite2D" type="Sprite2D" parent="HighDining"]
 
 [node name="HUD" parent="." instance=ExtResource("1_oc535")]
 
